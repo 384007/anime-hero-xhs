@@ -1,0 +1,519 @@
+{
+  "date": "2026-11-24T16:33:41.780Z",
+  "node": "v22.23.4",
+  "summary": {
+    "逻辑": {
+      "pass": 21,
+      "fail": 0
+    },
+    "商业化": {
+      "pass": 10,
+      "fail": 0
+    },
+    "UI 冒烟": {
+      "pass": 22,
+      "fail": 0
+    },
+    "确定性与 bot": {
+      "pass": 5,
+      "fail": 0
+    },
+    "静态检查": {
+      "pass": 7,
+      "fail": 0
+    }
+  },
+  "total": 65,
+  "failed": 0,
+  "counts": {
+    "mainChapters": 5,
+    "sideChapters": 1,
+    "mainScenes": 14,
+    "sideScenes": 2,
+    "endings": 5,
+    "intents": 8,
+    "intentResponses": 130
+  },
+  "bundleBytes": 124253,
+  "economyLedger": {
+    "sources": {
+      "coins": [
+        "签到",
+        "签到第3天",
+        "探索",
+        "章节完成",
+        "结局"
+      ],
+      "gems": [
+        "章节完成",
+        "结局"
+      ],
+      "energy": [
+        "签到",
+        "休息",
+        "时间恢复",
+        "回复药",
+        "章节完成",
+        "小份体力",
+        "结局",
+        "体力补满"
+      ]
+    },
+    "sinks": {
+      "coins": [
+        "买回复药",
+        "小份体力"
+      ],
+      "gems": [
+        "体力补满",
+        "通行证",
+        "番外"
+      ],
+      "energy": [
+        "探索",
+        "剧情行动",
+        "章节重玩"
+      ]
+    }
+  },
+  "uiActsCovered": [
+    "again",
+    "back",
+    "buy-coins",
+    "buy-gems",
+    "chapter-start",
+    "chapters",
+    "checkin",
+    "choice",
+    "free",
+    "gallery",
+    "mute",
+    "new",
+    "potion",
+    "rest",
+    "restart",
+    "restart-no",
+    "restart-yes",
+    "resume",
+    "shop",
+    "side-start",
+    "sides",
+    "start",
+    "title",
+    "trait"
+  ],
+  "bots": {
+    "hero": {
+      "ending": "hero",
+      "stats": {
+        "rep": 100,
+        "affA": 27,
+        "affB": 23
+      },
+      "steps": 38,
+      "walls": 6,
+      "firstWallAt": "c3_tavern",
+      "waitedMin": 180,
+      "energyUsed": 173,
+      "gems": 50,
+      "coins": 320,
+      "hash": "1eeae1d7"
+    },
+    "hizuki": {
+      "ending": "hizuki",
+      "stats": {
+        "rep": 72,
+        "affA": 100,
+        "affB": 50
+      },
+      "steps": 40,
+      "walls": 6,
+      "firstWallAt": "c3_tavern",
+      "waitedMin": 180,
+      "energyUsed": 172,
+      "gems": 50,
+      "coins": 250,
+      "hash": "7aae74c9"
+    },
+    "yukino": {
+      "ending": "yukino",
+      "stats": {
+        "rep": 54,
+        "affA": 47,
+        "affB": 100
+      },
+      "steps": 40,
+      "walls": 4,
+      "firstWallAt": "c3_night",
+      "waitedMin": 120,
+      "energyUsed": 161,
+      "gems": 50,
+      "coins": 260,
+      "hash": "4da4f8db"
+    },
+    "normal": {
+      "ending": "normal",
+      "stats": {
+        "rep": 38,
+        "affA": 15,
+        "affB": 23
+      },
+      "steps": 14,
+      "walls": 0,
+      "firstWallAt": null,
+      "waitedMin": 0,
+      "energyUsed": 51,
+      "gems": 50,
+      "coins": 235,
+      "hash": "059d03fb"
+    },
+    "bad": {
+      "ending": "bad",
+      "stats": {
+        "rep": 52,
+        "affA": 49,
+        "affB": 15
+      },
+      "steps": 28,
+      "walls": 2,
+      "firstWallAt": "c4_core",
+      "waitedMin": 60,
+      "energyUsed": 131,
+      "gems": 50,
+      "coins": 310,
+      "hash": "58349b44"
+    },
+    "freeOnly": {
+      "ending": "normal",
+      "steps": 34,
+      "hash": "1ea95d76"
+    }
+  },
+  "checks": [
+    {
+      "section": "逻辑",
+      "name": "至少 4 章主线，每章至少 2 个场景",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "意图分类至少 8 类且包含规定的 8 类",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "每个场景：2~3 个选项、至少 2 个无条件选项、8 类意图都有回应、fallback 会推进",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "剧情图：所有场景可达，任何场景都能走到结局（无死路）",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "关键词意图识别",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "每个场景 × 每类意图：自由输入命中该场景预写回应",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "识别不到的输入走通用推进回应并推进剧情",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "同一场景自由行动 5 次没推进会自动推进",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "数值只在首次触发时变化，选项会改数值",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "特质影响数值",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "数值影响分支：条件选项按数值/旗标出现",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "断桥自由输入能按对象区分救谁",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "结局条件：5 个结局各自的判定",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "体力：行动消耗、体力墙、休息永远可用、时间恢复、回复药",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "存档读档：进度、数值、已解锁章节都能恢复",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "坏档不会崩，重新开始",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "重新开始清掉本局、保留跨周目数据；通关后能重玩",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "章节选择：从已解锁章节开始，消耗体力，数值回到入章快照",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "章节完成奖励只发一次",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "每日签到：当天一次、连续累加、断签重置、7 天循环",
+      "ok": true
+    },
+    {
+      "section": "逻辑",
+      "name": "结局收集进度奖励",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "所有付费点带 price_rmb，且只用 3/6/12 档",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "默认关闭：没有支付权限时不出现任何购买入口，宝石包整个隐藏",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "有权限但配置未开启，仍然不显示购买入口",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "游戏内货币先行兑换：宝石换通行证后本章不耗体力",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "学园币兑换：回复药、小份体力（日限 3 次）",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "番外解锁：宝石兑换 → 游玩 → 通关奖励，主线存档不受影响",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "结局图鉴完整版：显示未达成结局的条件",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "经济：每种货币至少 2 个来源、2 个去处（实际跑一遍）",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "每周上新：未到上线日的章节不显示、不能玩，到日子自动出现（只改数据）",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "标题页渲染，带 AI 制作标注",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "touchend 触发且 preventDefault，随后的合成 click 被去重",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "滑动（touchmove 超过 10px）不触发按钮",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "只有 click 的 WebView 也能用（无 touch 事件）",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "创建主角 → 进入剧情",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "点选项推进",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "自由输入框：点行动按钮",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "自由输入框：回车提交",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "空输入给提示，不扣体力",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "静音开关",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "商店：默认没有任何 pay 按钮，返回回到剧情",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "图鉴进出",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "重新开始：确认框可取消",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "体力墙：显示原地休息等出口，点休息能继续",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "一路点到结局，结局页可重玩",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "标题页：签到、章节选择、番外兑换与游玩",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "页面上出现过的每个 data-act 都有处理函数（没有假按钮）",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "所有视图里都没有“暂未开放 / 敬请期待”",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "音效有在播放",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "存储被禁用的 WebView 也能启动（退回内存存档）",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "boot：挂上 render_game_to_text 与 advanceTime 钩子",
+      "ok": true
+    },
+    {
+      "section": "确定性与 bot",
+      "name": "同种子重复跑：状态哈希一致（5 个策略 × 2 次 + 自由输入 bot）",
+      "ok": true
+    },
+    {
+      "section": "确定性与 bot",
+      "name": "不同种子会改变战斗随机结果（随机数确实参与）",
+      "ok": true
+    },
+    {
+      "section": "确定性与 bot",
+      "name": "bot 通关打出主线结局（学园的传说）",
+      "ok": true
+    },
+    {
+      "section": "确定性与 bot",
+      "name": "bot 打出全部 5 个结局",
+      "ok": true
+    },
+    {
+      "section": "确定性与 bot",
+      "name": "只用自由输入（含乱打）也能走到结局",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "零网络请求：没有 fetch / XHR / WebSocket / sendBeacon / 外链",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "不依赖 Pointer Events",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "没有 emoji 当画面",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "文案：没有“不是A而是B”翻案句、没有“暂未开放”",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "游戏内标注 AI 制作",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "包体 < 10MB",
+      "ok": true
+    },
+    {
+      "section": "静态检查",
+      "name": "内容层和引擎分离：game.js 里没有剧情场景 id 和角色名",
+      "ok": true
+    },
+    {
+      "section": "商业化",
+      "name": "开启后走 PaymentProvider：成功发货并记录订单，失败不发货",
+      "ok": true
+    },
+    {
+      "section": "UI 冒烟",
+      "name": "支付开启时商店出现 ¥ 按钮，点击走 PaymentProvider 并到账",
+      "ok": true
+    }
+  ]
+}

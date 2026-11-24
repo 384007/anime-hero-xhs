@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>美术预览</title>
+<style>body{background:#222;color:#fff;font:12px sans-serif;margin:8px}.g{display:grid;grid-template-columns:repeat(4,240px);gap:6px}.g div{background:#000}svg{display:block;width:240px}p{margin:2px 4px}.pt{display:flex;gap:8px;margin-top:8px}.pt svg{width:150px;background:#445}</style>
+</head><body>
+<div class="g" id="g"></div><div class="pt" id="p"></div>
+<script>window.__ANIME_HERO_NO_BOOT__ = true;</script>
+<script src="../content.js"></script>
+<script src="../game.js"></script>
+<script>
+  var A = AnimeHero.Art, C = ANIME_HERO_CONTENT, g = document.getElementById('g'), p = document.getElementById('p');
+  Object.keys(A.scenes).forEach(function (k) { var d = document.createElement('div'); d.innerHTML = A.scene(k) + '<p>' + k + '</p>'; g.appendChild(d); });
+  Object.keys(C.characters).forEach(function (id) { ['normal', 'smile'].forEach(function (m) { var d = document.createElement('div'); d.innerHTML = A.portrait(C.characters[id], m); p.appendChild(d); }); });
+</script>
+</body></html>

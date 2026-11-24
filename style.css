@@ -1,0 +1,96 @@
+/* 《我成了动漫主角》样式。系统字体，不加载任何外部资源。 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #1b1630; color: #f3eefc; font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; overscroll-behavior: none; }
+.app { max-width: 480px; margin: 0 auto; min-height: 100vh; background: linear-gradient(#241d40, #17122a); }
+.screen { padding: 10px 12px calc(16px + env(safe-area-inset-bottom)); }
+.loading { padding: 40px 0; text-align: center; }
+
+button { font: inherit; color: inherit; border: 0; background: none; touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; cursor: pointer; }
+.btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; padding: 8px 14px; margin: 4px 0; border-radius: 12px; background: #3a2f63; border: 1px solid #5a4b92; }
+.btn:active { transform: scale(0.97); background: #4a3c7d; }
+.btn.primary { background: linear-gradient(#ff6f9a, #e04a7c); border-color: #ff9ab9; font-weight: 600; }
+.btn.gold { background: linear-gradient(#f7c948, #d99a1e); color: #2a1b00; border-color: #ffe08a; font-weight: 600; }
+.btn.danger { background: #b33a4a; border-color: #e26a7a; }
+.btn.ghost { background: transparent; }
+.btn.wide { width: 100%; }
+.btn.mini { min-height: 36px; padding: 4px 10px; font-size: 13px; margin: 2px; }
+.btn small { font-size: 11px; opacity: 0.75; }
+
+.topbar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-bottom: 6px; }
+.pill { font-size: 12px; padding: 3px 8px; border-radius: 99px; background: #2c2450; border: 1px solid #463a78; }
+.pill b { color: #fff; }
+.pill.energy b { color: #8ff0a4; }
+.pill.gem b { color: #7fd6ff; }
+.topbar .btn.mini { margin-left: auto; }
+.toast { background: #2f5d50; border: 1px solid #5fb39a; border-radius: 10px; padding: 6px 10px; margin-bottom: 6px; font-size: 13px; }
+
+.art { position: relative; width: 100%; aspect-ratio: 360 / 220; border-radius: 14px; overflow: hidden; background: #000; }
+.scene-svg { display: block; width: 100%; height: 100%; }
+.portrait { position: absolute; bottom: -4px; width: 30%; max-width: 130px; }
+.portrait.left { left: 2%; } .portrait.right { right: 2%; } .portrait.solo { right: 6%; }
+.portrait-svg { display: block; width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+.nametag { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); font-size: 11px; background: rgba(0,0,0,0.6); padding: 0 8px; border-radius: 8px; white-space: nowrap; }
+
+.logo { text-align: center; font-size: 28px; margin: 12px 0 2px; letter-spacing: 2px; color: #ffd1e0; text-shadow: 0 2px 0 #8e1a5c; }
+.sub { text-align: center; opacity: 0.8; font-size: 13px; }
+.menu { display: flex; flex-direction: column; margin: 10px 0; }
+.news { font-size: 12px; text-align: center; opacity: 0.8; margin: 6px 0; }
+.checkin-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin: 8px 0; }
+.ck { font-size: 9px; text-align: center; background: #2c2450; border-radius: 6px; padding: 3px 1px; line-height: 1.3; opacity: 0.8; }
+.ck.done { background: #2f5d50; opacity: 1; }
+
+h2 { font-size: 20px; margin: 8px 0; } h3 { font-size: 15px; margin: 10px 0 6px; }
+.field { display: block; margin: 8px 0; font-size: 13px; }
+input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid #5a4b92; background: #120e22; color: #fff; margin-top: 4px; }
+.traits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.trait { text-align: left; padding: 10px; border-radius: 12px; background: #2c2450; border: 2px solid #463a78; min-height: 88px; display: flex; flex-direction: column; }
+.trait span { font-size: 12px; opacity: 0.85; }
+.trait.on { border-color: #ff8fb3; background: #43305e; }
+
+.tag { font-size: 12px; opacity: 0.85; margin: 6px 0 4px; }
+.tag em { color: #8ff0a4; font-style: normal; }
+.story { background: rgba(10, 8, 20, 0.55); border-radius: 12px; padding: 10px 12px; max-height: 42vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.story p { margin-bottom: 6px; }
+.scene-text.dim, .dim { opacity: 0.7; }
+.small { font-size: 12px; }
+.resp { border-left: 3px solid #ff8fb3; padding-left: 8px; margin: 6px 0; }
+.you { color: #ffd1e0; font-size: 13px; }
+.fx { color: #8ff0a4; font-size: 12px; }
+
+.bars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 8px 0; }
+.bar { position: relative; height: 22px; border-radius: 8px; background: #2c2450; overflow: hidden; font-size: 11px; }
+.bar span { position: absolute; left: 6px; top: 2px; z-index: 1; }
+.bar i { position: absolute; left: 0; top: 0; bottom: 0; }
+.bar.rep i { background: #b8862b; } .bar.a i { background: #c0392b; } .bar.b i { background: #3a7bd5; }
+
+.choices { display: flex; flex-direction: column; }
+.choice { align-items: flex-start; text-align: left; }
+.free { display: flex; gap: 6px; align-items: center; margin-top: 4px; }
+.free input { margin-top: 0; }
+.free .btn { flex: none; margin: 0; }
+.hint { font-size: 11px; opacity: 0.6; margin: 4px 0; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; margin-top: 6px; }
+
+.wall { background: #3d2430; border: 1px solid #d36a86; border-radius: 12px; padding: 10px; margin: 8px 0; }
+.wall p { font-size: 12px; margin: 4px 0; opacity: 0.9; }
+.wall-btns { display: flex; flex-direction: column; }
+.confirm { background: #3d2430; border-radius: 12px; padding: 10px; margin-top: 8px; display: flex; flex-direction: column; }
+
+.offer { display: flex; justify-content: space-between; gap: 8px; align-items: center; background: #2c2450; border-radius: 12px; padding: 10px; margin: 8px 0; }
+.offer p { font-size: 12px; opacity: 0.8; }
+.offer-btns { display: flex; flex-direction: column; align-items: flex-end; min-width: 110px; }
+.owned { color: #8ff0a4; font-size: 13px; }
+.need { font-size: 12px; opacity: 0.7; text-align: right; }
+
+.ending { background: rgba(10, 8, 20, 0.6); border-radius: 12px; padding: 12px; margin: 8px 0; }
+.ending h2 { color: #ffd1e0; }
+.progress { height: 10px; background: #2c2450; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+.progress i { display: block; height: 100%; background: linear-gradient(90deg, #ff6f9a, #7fd6ff); }
+.milestones { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.milestones span { font-size: 11px; padding: 2px 8px; border-radius: 8px; background: #2c2450; }
+.milestones .done { background: #2f5d50; }
+.end-card { background: #2c2450; border-radius: 12px; padding: 10px; margin: 6px 0; border-left: 4px solid #463a78; }
+.end-card.got { border-left-color: #ff8fb3; }
+.end-card p { font-size: 13px; }
+.ai-note { text-align: center; font-size: 11px; opacity: 0.55; margin-top: 14px; }
